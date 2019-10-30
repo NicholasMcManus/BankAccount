@@ -58,6 +58,7 @@ public class BankAccount extends Application {
         
         View.NewAccount test = new View.NewAccount();
         View.AccountList test2 = new View.AccountList();
+        View.ExistingAccount test3 = new View.ExistingAccount();
     }
 
     /**
