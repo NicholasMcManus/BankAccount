@@ -53,10 +53,11 @@ public class BankAccount extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         secondaryStage.setScene(scene2);
-        secondaryStage.show();
-        primaryStage.show();
+        //secondaryStage.show();
+        //primaryStage.show();
         
         View.NewAccount test = new View.NewAccount();
+        View.AccountList test2 = new View.AccountList();
     }
 
     /**
