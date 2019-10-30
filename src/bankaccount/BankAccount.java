@@ -57,8 +57,8 @@ public class BankAccount extends Application {
         //primaryStage.show();
         
         View.NewAccount test = new View.NewAccount();
-        View.AccountList test2 = new View.AccountList();
-        View.ExistingAccount test3 = new View.ExistingAccount();
+        //View.AccountList test2 = new View.AccountList();
+        //View.ExistingAccount test3 = new View.ExistingAccount();
     }
 
     /**

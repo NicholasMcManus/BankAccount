@@ -1,12 +1,17 @@
 package View;
 
 import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class NewAccount{
@@ -26,53 +31,52 @@ public class NewAccount{
         
         Stage primaryStage = new Stage();
         Scene root;
-        
-        double widthCol = 3;
-        
+                
         //Construct the VBox
-        Pane primaryLayout = new Pane();
-        //primaryLayout.setStyle("-fx-background-color: #FF0000");
+        GridPane primaryLayout = new GridPane();
+        primaryLayout.setHgap(5);
+        primaryLayout.setVgap(10);
+        primaryLayout.setAlignment(Pos.CENTER);
+        
         root = new Scene(primaryLayout, 300, 200);
-        
-        ReadOnlyDoubleProperty width = root.widthProperty();
-        ReadOnlyDoubleProperty height = root.heightProperty();
-        
+
         //Start with the First Label
         selectLabel = new Label("Select Account Type");
-        selectLabel.layoutXProperty().bind(width.divide(widthCol));
-        
-        primaryLayout.getChildren().add(selectLabel);
+        primaryLayout.add(selectLabel,0,0);
         
         //Make ComboBox
         cBox = new ComboBox();
-        primaryLayout.getChildren().add(cBox);
-           
-        cBox.layoutXProperty().bind(width.divide(widthCol));
-        cBox.layoutYProperty().bind(height.divide(4));
+        primaryLayout.add(cBox, 0,1);
+        centerNode(cBox);   
         
-        //Make HBox with depositLabel and inputField     
         //InitialLabel Things!
         depositLabel = new Label("Initial Deposit:");
-        //depositLabel.layoutXProperty();
-        depositLabel.layoutYProperty().bind(height.divide(2));
         
         initDepositField = new TextField();
-        initDepositField.layoutXProperty().bind(width.divide(widthCol));
-        initDepositField.layoutYProperty().bind(height.divide(2));
         
-        primaryLayout.getChildren().add(depositLabel);
-        primaryLayout.getChildren().add(initDepositField);
+        GridPane.setHalignment(initDepositField, HPos.RIGHT);
+        GridPane.setValignment(initDepositField, VPos.CENTER);
+        
+        primaryLayout.add(depositLabel, 0, 2);
+        primaryLayout.add(initDepositField, 1, 2);
         
         //Add the button to create an account
         createAccount = new Button("Create Account");
+        //createAccount.setPrefWidth(Double.MAX_VALUE);
         
-        createAccount.layoutYProperty().bind(height.divide(4).multiply(3));
+        primaryLayout.add(createAccount, 0, 3);
+        this.centerNode(createAccount);
         
-        primaryLayout.getChildren().add(createAccount);
-        createAccount.layoutXProperty().bind(width.divide(widthCol));
-
+        
         primaryStage.setTitle("Create New Account");
         primaryStage.setScene(root);
         primaryStage.show();
+    }
+    
+    private void centerNode(Node current)
+    {
+        GridPane.setHalignment(current, HPos.CENTER);
+        GridPane.setValignment(current, VPos.CENTER);
+        GridPane.setColumnSpan(current, GridPane.REMAINING);
     }
 }

@@ -1,5 +1,8 @@
 package View;
 
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -50,18 +53,25 @@ public class ExistingAccount{
         balance.setStyle("-fx-opacity: 1;");
         
         lBalance = new Label("Balance");
-        
+                
         //Delete
         delete = new Button("Delete");
         
         layout.add(lBalance, 0, 3);
+        
+        //Alligning the Label next to its field
+        GridPane.setHalignment(lBalance, HPos.RIGHT);
+        GridPane.setValignment(lBalance, VPos.CENTER);
+        
         layout.add(balance, 1, 3);
         layout.add(delete, 1, 4);
         
         //Try making the layout more dynamic
+        layout.setAlignment(Pos.CENTER);
+        layout.setHgap(5);
+        layout.setVgap(10);
         
-        
-        root = new Scene(layout, 300, 150);
+        root = new Scene(layout, 325, 200);
         primaryStage.setTitle("Access an Existing Account");
         primaryStage.setScene(root);
         primaryStage.show();
