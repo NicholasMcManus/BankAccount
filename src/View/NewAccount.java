@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -92,16 +93,12 @@ public class NewAccount{
     
     public String getAccountType()
     {
-        return ((Text)cBox.getValue()).getText();
+        return (String)cBox.getValue();
     }
     
     public void setComboList(ArrayList<String> list)
     {
-        ArrayList<Text> textBits = new ArrayList();
-        
-        list.forEach(e -> textBits.add(new Text(e)));
-        
-        cBox.getItems().addAll(textBits);
+        cBox.getItems().addAll(list);
     }
     
     public double getBalance()
