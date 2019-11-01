@@ -49,6 +49,57 @@ public class Model extends Observable{
         return null;
     }
     
+    public boolean withdraw(int accountID, double amount)
+    {
+        //Declare object making sure is it not null
+        BankAccount target = getAccount(accountID);
+        
+        if(target == null)
+            return false;
+        //Declare the rest of the variables
+        double oldBalance = target.getBalance();
+        
+        //Calculation
+        target.withdraw(amount);
+        
+        //Return if the transaction was successful
+        if(oldBalance != target.getBalance())
+        {
+            //Notify the observers
+            this.setChanged();
+            this.notifyObservers();
+            
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean deposit(int accountID, double amount)
+    {
+        //Declare object making sure is it not null
+        BankAccount target = getAccount(accountID);
+        
+        if(target == null)
+            return false;
+        //Declare the rest of the variables
+        double oldBalance = target.getBalance();
+        
+        //Calculation
+        target.deposit(amount);
+        
+        //Return if the transaction was successful
+        if(oldBalance != target.getBalance())
+        {
+            //Notify the observers
+            this.setChanged();
+            this.notifyObservers();
+            
+            return true;
+        }
+        return false;
+        
+    }
+    
     /**
      * Try to remove the account specified by the ID
      * @param accountID The ID of the account to remove

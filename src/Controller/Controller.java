@@ -12,7 +12,7 @@ public class Controller {
     public Controller(Model m, View v)
     {
         AccountListController aControl = new AccountListController(m, v.getAccountList());
-        //ExistingAccountController eControl = new ExistingAccountController(m, v.getExistingAccount());
+        ExistingAccountController eControl = new ExistingAccountController(m, v.getExistingAccount());
         NewAccountController nControl = new NewAccountController(m, v.getNewAccount());
     }
 }

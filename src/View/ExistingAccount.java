@@ -1,5 +1,7 @@
 package View;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
@@ -76,4 +78,65 @@ public class ExistingAccount{
         primaryStage.setScene(root);
         primaryStage.show();
     }
+    
+    public void bindSelectButton(EventHandler<ActionEvent> action)
+    {
+        this.accountSelect.setOnAction(action);
+    }
+    
+    public void bindWithdrawButton(EventHandler<ActionEvent> action)
+    {
+        this.withdraw.setOnAction(action);
+    }
+    
+    public void bindDepositButton(EventHandler<ActionEvent> action)
+    {
+        this.deposit.setOnAction(action);
+    }
+    
+    public void bindDeleteButton(EventHandler<ActionEvent> action)
+    {
+        this.delete.setOnAction(action);
+    }
+    
+    public double getWithdraw()
+    {
+        return Double.parseDouble(inputWithdraw.getText());
+    }
+    
+    public double getDeposit()
+    {
+        return Double.parseDouble(inputDeposit.getText());
+    }
+    
+    public int getAccountID()
+    {
+        int input;
+        try
+        {
+            input = Integer.parseInt(account.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            input = -1;
+        }
+        return input;
+    }
+    
+    public void setBalance(double balance)
+    {
+        this.balance.setText(String.format("%.2f",balance));
+    }
+    
+    public void setBalanceField(String input)       
+    {
+        this.balance.setText(input);
+    }
+    
+    public void resetInputFields()
+    {
+        this.inputDeposit.setText("");
+        this.inputWithdraw.setText((""));
+    }
+    
 }
