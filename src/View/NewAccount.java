@@ -1,6 +1,10 @@
 package View;
 
+import java.util.ArrayList;
 import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class NewAccount{
@@ -79,4 +84,35 @@ public class NewAccount{
         GridPane.setValignment(current, VPos.CENTER);
         GridPane.setColumnSpan(current, GridPane.REMAINING);
     }
+    
+    public void bindCreateButton(EventHandler<ActionEvent> action)
+    {
+        createAccount.setOnAction(action);
+    }
+    
+    public String getAccountType()
+    {
+        return ((Text)cBox.getValue()).getText();
+    }
+    
+    public void setComboList(ArrayList<String> list)
+    {
+        ArrayList<Text> textBits = new ArrayList();
+        
+        list.forEach(e -> textBits.add(new Text(e)));
+        
+        cBox.getItems().addAll(textBits);
+    }
+    
+    public double getBalance()
+    {
+        return Double.parseDouble(this.initDepositField.getText());
+    }
+    
+    public void resetChoices()
+    {
+        initDepositField.setText("0");
+        cBox.setValue(cBox.getItems().get(0));
+    }
+    
 }

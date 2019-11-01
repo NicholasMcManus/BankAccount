@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 public class Model extends Observable{
@@ -24,6 +25,8 @@ public class Model extends Observable{
     public void addAccount(String name, double initialBalance)
     {
         accounts.add(new BankAccount(name, initialBalance));
+        this.setChanged();
+        this.notifyObservers();
     }
     
     /**
@@ -61,7 +64,17 @@ public class Model extends Observable{
             return false;
         
         accounts.remove(target);
+        this.setChanged();
         this.notifyObservers();
         return true;
+    }
+    
+    /**
+     * Allow usage of an unmodifiable list of accounts
+     * @return An unmodifiable List of values
+     */
+    public List getAccountList()
+    {
+        return java.util.Collections.unmodifiableList(accounts);
     }
 }

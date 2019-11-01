@@ -19,7 +19,7 @@ public class AccountList{
         BorderPane layout = new BorderPane();
         
         display = new TextArea();
-        display.setText("This is a test\nA TEST I SAY");
+        display.setText("Please Create an Account!");
         display.setEditable(false);
         
         layout.setCenter(display);
@@ -28,5 +28,10 @@ public class AccountList{
         primaryStage.setTitle("Account List");
         primaryStage.setScene(root);
         primaryStage.show();
+    }
+    
+    public void updateDisplay(String newString)
+    {
+        display.setText(newString);
     }
 }

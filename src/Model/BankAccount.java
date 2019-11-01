@@ -26,6 +26,7 @@ public class BankAccount {
         this.accountName = name;
         this.accountBalance = initialBalance;
         this.accountID = ++accountNum;
+        System.out.println(this);
     }
     
     /**
@@ -90,5 +91,9 @@ public class BankAccount {
         
         this.accountBalance += amount;
     }
-    
+
+    @Override
+    public String toString() {
+        return (accountName + " " + accountID + ": balance = $" + String.format("%.2f",accountBalance));
+    }
 }
