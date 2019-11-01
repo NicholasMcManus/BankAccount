@@ -66,6 +66,10 @@ public class ExistingAccountController implements Observer{
         view.bindWithdrawButton(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                //Make sure the right account is signed in
+                if(view.getAccountID() != currentAccount)
+                    checkAccountInput();
+                
                 //-1 represents an invalid account
                 if(currentAccount != -1)
                 {
@@ -89,6 +93,10 @@ public class ExistingAccountController implements Observer{
         view.bindDepositButton(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                //Make sure the right account is signed in
+                if(view.getAccountID() != currentAccount)
+                    checkAccountInput();
+                
                 //-1 represents an invalid account
                 if(currentAccount != -1)
                 {
@@ -107,6 +115,10 @@ public class ExistingAccountController implements Observer{
         view.bindDeleteButton(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                
+                //Make sure the right account is signed in
+                if(view.getAccountID() != currentAccount)
+                    checkAccountInput();
                 
                 boolean success = false;
                 

@@ -106,7 +106,14 @@ public class NewAccount{
     
     public double getBalance()
     {
-        return Double.parseDouble(this.initDepositField.getText());
+        try
+        {
+            return Math.abs(Double.parseDouble(this.initDepositField.getText()));
+        }
+        catch(NumberFormatException e)
+        {
+            return 0;
+        }
     }
     
     public void resetChoices()

@@ -101,12 +101,27 @@ public class ExistingAccount{
     
     public double getWithdraw()
     {
+        try
+        {
         return Double.parseDouble(inputWithdraw.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            return 0;
+        }
+                
     }
     
     public double getDeposit()
     {
-        return Double.parseDouble(inputDeposit.getText());
+        try
+        {
+            return Double.parseDouble(inputDeposit.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            return 0;
+        }
     }
     
     public int getAccountID()
