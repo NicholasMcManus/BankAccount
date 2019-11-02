@@ -36,7 +36,6 @@ public class NewAccountController implements Observer{
      */
     @Override
     public void update(Observable o, Object o1) {
-        System.out.println("NewAccount UPDATE!");
         view.resetChoices();
     }
     

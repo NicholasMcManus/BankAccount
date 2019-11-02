@@ -26,7 +26,6 @@ public class BankAccount {
         this.accountName = name;
         this.accountBalance = initialBalance;
         this.accountID = ++accountNum;
-        System.out.println(this);
     }
     
     /**

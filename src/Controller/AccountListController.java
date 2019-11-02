@@ -28,7 +28,6 @@ public class AccountListController implements Observer{
      */
     @Override
     public void update(Observable o, Object o1) {
-        System.out.println("AccountList UPDATE");
         if(o instanceof Model)
             updateAccountList((Model)o);
         else
@@ -47,7 +46,6 @@ public class AccountListController implements Observer{
         {
             output += (source.getAccountList().get(i) + "\n");
         }
-        //System.out.println("Update the account list to!\n" + output);
         view.updateDisplay(output);
     }
 }
