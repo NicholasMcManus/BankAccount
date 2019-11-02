@@ -68,7 +68,7 @@ public class NewAccount{
         primaryLayout.add(createAccount, 0, 3);
         this.centerNode(createAccount);
         
-        
+        primaryStage.setX(javafx.stage.Screen.getPrimary().getBounds().getWidth()/4 - root.getWidth()/2);
         primaryStage.setTitle("Create New Account");
         primaryStage.setScene(root);
         primaryStage.show();

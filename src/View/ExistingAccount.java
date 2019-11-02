@@ -77,6 +77,7 @@ public class ExistingAccount{
         layout.setVgap(10);
         
         root = new Scene(layout, 325, 200);
+        primaryStage.setX(javafx.stage.Screen.getPrimary().getBounds().getWidth()*(3./4)-root.getWidth()/2);
         primaryStage.setTitle("Access an Existing Account");
         primaryStage.setScene(root);
         primaryStage.show();
