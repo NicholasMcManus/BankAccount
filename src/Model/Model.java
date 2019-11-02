@@ -49,6 +49,12 @@ public class Model extends Observable{
         return null;
     }
     
+    /**
+     * Perform the withdraw transaction with an account
+     * @param accountID The ID of the targeted account
+     * @param amount The amount to attempt to withdraw
+     * @return 
+     */
     public boolean withdraw(int accountID, double amount)
     {
         //Declare object making sure is it not null
@@ -74,6 +80,12 @@ public class Model extends Observable{
         return false;
     }
     
+    /**
+     * Attempt to deposit a provided amount into an account
+     * @param accountID The account to deposit into
+     * @param amount The amount to try and deposit into the account
+     * @return 
+     */
     public boolean deposit(int accountID, double amount)
     {
         //Declare object making sure is it not null

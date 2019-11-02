@@ -10,10 +10,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class NewAccountController implements Observer{
-    
+    //Class Variables
     private NewAccount view;
     private Model model;
     
+    /**
+     * Construct a new Object that controls a NewAccountGUI
+     * @param m The model containing the accounts
+     * @param view The NewAccountGUI that needs to be modified
+     */
     public NewAccountController(Model m, NewAccount view)
     {
         this.view = view;
@@ -24,12 +29,20 @@ public class NewAccountController implements Observer{
         this.bindCreate();
     }
 
+    /**
+     * When notified by an observable class it will update its internal list
+     * @param o The observable object calling notifyObservers
+     * @param o1 Some object
+     */
     @Override
     public void update(Observable o, Object o1) {
         System.out.println("NewAccount UPDATE!");
         view.resetChoices();
     }
     
+    /**
+     * Add accounts to the ComboBox using an ArrayList
+     */
     private void addItems()
     {
         ArrayList<String> accountTypes = new ArrayList();
@@ -41,6 +54,9 @@ public class NewAccountController implements Observer{
         view.setComboList(accountTypes);
     }
     
+    /**
+     * Make the create account button function
+     */
     private void bindCreate()
     {
         view.resetChoices();

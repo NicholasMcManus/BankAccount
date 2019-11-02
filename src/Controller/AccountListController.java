@@ -7,14 +7,25 @@ import java.util.Observer;
 
 public class AccountListController implements Observer{
     
+    //Class Variables
     private AccountList view;
     
+    /**
+     * Constructor for the class
+     * @param m An observable model
+     * @param view The view that needs to be bound
+     */
     public AccountListController(Model m, AccountList view)
     {
         this.view = view;
         m.addObserver(this);
     }
 
+    /**
+     * When notified by an observable class it will update its internal list
+     * @param o The observable object calling notifyObservers
+     * @param o1 Some object
+     */
     @Override
     public void update(Observable o, Object o1) {
         System.out.println("AccountList UPDATE");
@@ -24,6 +35,10 @@ public class AccountListController implements Observer{
             System.out.println("Object was not type: Model");
     }
     
+    /**
+     * Update the account list from a provided model
+     * @param source 
+     */
     public void updateAccountList(Model source)
     {
         String output = "";
@@ -32,7 +47,7 @@ public class AccountListController implements Observer{
         {
             output += (source.getAccountList().get(i) + "\n");
         }
-        System.out.println("Update the account list to!\n" + output);
+        //System.out.println("Update the account list to!\n" + output);
         view.updateDisplay(output);
     }
 }

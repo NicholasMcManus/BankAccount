@@ -20,6 +20,9 @@ public class ExistingAccount{
     private TextField account, inputWithdraw, inputDeposit, balance;
     private Label lBalance;
     
+    /**
+     * Default constructor for the GUI that modifies Existing Bank Accounts
+     */
     public ExistingAccount()
     {
         //Local Variables
@@ -79,26 +82,46 @@ public class ExistingAccount{
         primaryStage.show();
     }
     
+    /**
+     * Bind an action to the account select button
+     * @param action The action to bind
+     */
     public void bindSelectButton(EventHandler<ActionEvent> action)
     {
         this.accountSelect.setOnAction(action);
     }
     
+    /**
+     * Bind an action to the withdraw button
+     * @param action The action to bind
+     */
     public void bindWithdrawButton(EventHandler<ActionEvent> action)
     {
         this.withdraw.setOnAction(action);
     }
     
+    /**
+     * Bind an action to the deposit button
+     * @param action The action to bind
+     */
     public void bindDepositButton(EventHandler<ActionEvent> action)
     {
         this.deposit.setOnAction(action);
     }
     
+    /**
+     * Bind an action to the delete button
+     * @param action The action to bind
+     */
     public void bindDeleteButton(EventHandler<ActionEvent> action)
     {
         this.delete.setOnAction(action);
     }
     
+    /**
+     * Retrieve the amount to withdraw as a double
+     * @return The amount to withdraw if invalid - 0 otherwise
+     */
     public double getWithdraw()
     {
         try
@@ -112,6 +135,10 @@ public class ExistingAccount{
                 
     }
     
+    /**
+     * Retrieve the amount to deposit as a double
+     * @return The amount to deposit if valid - 0 otherwise
+     */
     public double getDeposit()
     {
         try
@@ -124,8 +151,13 @@ public class ExistingAccount{
         }
     }
     
+    /**
+     * Retrieve the current accountID entered by the user
+     * @return The account selected by the user, -1 returned on error
+     */
     public int getAccountID()
     {
+        //Local Varaibles
         int input;
         try
         {
@@ -138,16 +170,28 @@ public class ExistingAccount{
         return input;
     }
     
+    /**
+     * Set the balance of the GUI
+     * @param balance The balance to put on the GUI
+     */
     public void setBalance(double balance)
     {
         this.balance.setText(String.format("%.2f",balance));
     }
     
+    /**
+     * Set the balance of the GUI to something that is not a double
+     * @param input The special output to put in the balance field
+     */
     public void setBalanceField(String input)       
     {
         this.balance.setText(input);
     }
     
+    /**
+     * Call this to reset the input fields, useful after performing a deposit
+     * withdraw or account change
+     */
     public void resetInputFields()
     {
         this.inputDeposit.setText("");

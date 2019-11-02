@@ -92,6 +92,10 @@ public class BankAccount {
         this.accountBalance += amount;
     }
 
+    /**
+     * Produce the object in the form of a string
+     * @return A string representation of the object
+     */
     @Override
     public String toString() {
         return (accountName + " " + accountID + ": balance = $" + String.format("%.2f",accountBalance));

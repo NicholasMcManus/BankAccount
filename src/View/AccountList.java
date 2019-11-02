@@ -12,6 +12,9 @@ public class AccountList{
     //Variables
     private TextArea display;
     
+    /**
+     * Default Constructor for an AccountListGUI class
+     */
     public AccountList()
     {
         Stage primaryStage = new Stage();
@@ -30,6 +33,10 @@ public class AccountList{
         primaryStage.show();
     }
     
+    /**
+     * Update the display to show the string that was passed in
+     * @param newString The string to have the display updated to
+     */
     public void updateDisplay(String newString)
     {
         display.setText(newString);

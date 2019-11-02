@@ -1,12 +1,9 @@
 package View;
 
 import java.util.ArrayList;
-import javafx.beans.property.ReadOnlyDoubleProperty;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
@@ -14,10 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class NewAccount{
@@ -79,6 +74,10 @@ public class NewAccount{
         primaryStage.show();
     }
     
+    /**
+     * The node passed will be centered on the GridPane
+     * @param current The node to be centered
+     */
     private void centerNode(Node current)
     {
         GridPane.setHalignment(current, HPos.CENTER);
@@ -86,21 +85,38 @@ public class NewAccount{
         GridPane.setColumnSpan(current, GridPane.REMAINING);
     }
     
+    /**
+     * Bind some action to the button that creates an account
+     * @param action The action to be performed
+     */
     public void bindCreateButton(EventHandler<ActionEvent> action)
     {
         createAccount.setOnAction(action);
     }
     
+    /**
+     * Get the account type from the ComboBox
+     * @return The selection from the ComboBox
+     */
     public String getAccountType()
     {
         return (String)cBox.getValue();
     }
     
+    /**
+     * Set the ComboBox to an ArrayList of Strings
+     * @param list The list of strings
+     */
     public void setComboList(ArrayList<String> list)
     {
         cBox.getItems().addAll(list);
     }
     
+    /**
+     * Get the balance entered by the user
+     * @return The absolute value of the users input to handle negatives, 
+     * or 0 if invalid characters are used
+     */
     public double getBalance()
     {
         try
@@ -113,6 +129,9 @@ public class NewAccount{
         }
     }
     
+    /**
+     * Reset all user accessible fields 
+     */
     public void resetChoices()
     {
         initDepositField.setText("0");
